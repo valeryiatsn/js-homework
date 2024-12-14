@@ -12,7 +12,7 @@ let i = 0
 
 while (i <= 20) {
   if (i%2==1) {
-    sum = sum + 1
+    sum = sum + i
   }
   i++
 }
