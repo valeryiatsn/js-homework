@@ -20,8 +20,8 @@ let isAccess = false
 while (isAccess === false) {
     if ((isAdmin === true || isVerifiedUser) && (hasSpecialPermission || hasTemporaryPass === true)) {
         isAccess = true
-        alert ("You have a permission.")
+        console.log ("You have a permission.");
     } else {
-        alert ("You don't have permission")
+        console.log ("You don't have permission")
     }
 }
