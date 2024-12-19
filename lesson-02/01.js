@@ -13,6 +13,15 @@ const isVerifiedUser = true
 const hasSpecialPermission = true
 const hasTemporaryPass = false
 
-let isAccess
+let isAccess = false
 
 // your code
+
+while (isAccess === false) {
+    if ((isAdmin === true || isVerifiedUser) && (hasSpecialPermission || hasTemporaryPass === true)) {
+        isAccess = true
+        alert ("You have a permission.")
+    } else {
+        alert ("You don't have permission")
+    }
+}
