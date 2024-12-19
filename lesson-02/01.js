@@ -13,17 +13,21 @@ const isVerifiedUser = true
 const hasSpecialPermission = true
 const hasTemporaryPass = false
 
-let isAccess = false
+let isAccess
 
 // your code
 
-while (isAccess === false) {
-    if ((isAdmin === true || isVerifiedUser) && (hasSpecialPermission || hasTemporaryPass === true)) {
-        isAccess = true
-        console.log("You have a permission: " + isAccess);
-    } else {
-        console.log ("You don't have permission: " + isAccess)
-        }
-}
+isAccess = ((isAdmin || isVerifiedUser) && (hasSpecialPermission || hasTemporaryPass))
+console.log(isAccess);
+
+
+// while (isAccess === false) {
+//     if ((isAdmin === true || isVerifiedUser) && (hasSpecialPermission || hasTemporaryPass === true)) {
+//         isAccess = true
+//         console.log("You have a permission: " + isAccess);
+//     } else {
+//         console.log ("You don't have permission: " + isAccess)
+//         }
+// }
 
 // ;sdflks;f
