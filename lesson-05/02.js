@@ -38,7 +38,7 @@ const gallery = {
 function updateGallery(object, newKey, descrip){
 for (const key in object) {
   if (key === newKey) {
-    object[key] = descrip
+    object[newKey] = descrip
     } else {
       object[newKey] = descrip
     }
