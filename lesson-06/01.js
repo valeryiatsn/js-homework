@@ -18,29 +18,31 @@ const WEB_TECH_IMAGES = [
   'https://production-it-incubator.s3.eu-central-1.amazonaws.com/file-manager/Image/784380b9-6937-42a6-bdfe-869835820234_html-magic-logo.jpg',
 ]
 
-//получаем элементы слайдера
-const slider = document.querySelector('#web-tech-image')
-// const prevButton = document.querySelector('#prev-button');
-// const nextButton = document.querySelector('#next-button');
-let slideIndex = 0
+// индекс
+let currentIndex = 0;
 
+// переменные
+const imgElement = document.getElementById('web-tech-image');
+const prevButton = document.getElementById('prev-button');
+const nextButton = document.getElementById('next-button');
 
-slider.innerHTML = `<img src="${WEB_TECH_IMAGES[0]}" class="image" />`;
-
-function previousImg() {
-  if (slideIndex > 0 && slideIndex < WEB_TECH_IMAGES.length) {
-    slideIndex--;
-  } else {
-    slideIndex = WEB_TECH_IMAGES.length - 1;
-  }
-  slider.innerHTML = `<img src="${WEB_TECH_IMAGES[slideIndex]}" class="image" />`;
+// функция для обновления изображения
+function updateImage() {
+  imgElement.src = WEB_TECH_IMAGES[currentIndex];
 }
 
-function nextImg() {
-  if (slideIndex >= 0 && slideIndex < WEB_TECH_IMAGES.length - 1) {
-    slideIndex++;
-  } else {
-    slideIndex = 0;
-  }
-  slider.innerHTML = `<img src="${WEB_TECH_IMAGES[slideIndex]}" class="image" />`;
-}
+// кнопка "назад"
+prevButton.addEventListener('click', () => {
+  // Уменьшаем индекс и используем модуль для циклического переключения
+  currentIndex = (currentIndex - 1 + WEB_TECH_IMAGES.length) % WEB_TECH_IMAGES.length;
+  updateImage();
+});
+
+// кнопка "вперед"
+nextButton.addEventListener('click', () => {
+  // Увеличиваем индекс и используем модуль для циклического переключения
+  currentIndex = (currentIndex + 1) % WEB_TECH_IMAGES.length;
+  updateImage();
+});
+
+updateImage();
