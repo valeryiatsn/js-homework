@@ -17,3 +17,30 @@ const WEB_TECH_IMAGES = [
   'https://production-it-incubator.s3.eu-central-1.amazonaws.com/file-manager/Image/c8a1f4a6-1337-4899-bdfd-a8c9c7bb806a_css-magic-logo.jpg',
   'https://production-it-incubator.s3.eu-central-1.amazonaws.com/file-manager/Image/784380b9-6937-42a6-bdfe-869835820234_html-magic-logo.jpg',
 ]
+
+//получаем элементы слайдера
+const slider = document.querySelector('#web-tech-image')
+// const prevButton = document.querySelector('#prev-button');
+// const nextButton = document.querySelector('#next-button');
+let slideIndex = 0
+
+
+slider.innerHTML = `<img src="${WEB_TECH_IMAGES[0]}" class="image" />`;
+
+function previousImg() {
+  if (slideIndex > 0 && slideIndex < WEB_TECH_IMAGES.length) {
+    slideIndex--;
+  } else {
+    slideIndex = WEB_TECH_IMAGES.length - 1;
+  }
+  slider.innerHTML = `<img src="${WEB_TECH_IMAGES[slideIndex]}" class="image" />`;
+}
+
+function nextImg() {
+  if (slideIndex >= 0 && slideIndex < WEB_TECH_IMAGES.length - 1) {
+    slideIndex++;
+  } else {
+    slideIndex = 0;
+  }
+  slider.innerHTML = `<img src="${WEB_TECH_IMAGES[slideIndex]}" class="image" />`;
+}
