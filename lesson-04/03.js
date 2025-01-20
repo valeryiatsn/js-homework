@@ -17,4 +17,21 @@ findCommonElements([1, 2, 3], [2, 3, 4]) // [2, 3]
 Подсказка: можно использовать функцию `includesElement`, которую мы написали ранее. Переписывать её не нужно, она доступна по всему проекту за счёт hoisting.
 */
 
-function findCommonElements() {}
+function findCommonElements(array1, array2) {
+// Используем Set для хранения уникальных элементов второго массива
+const set2 = new Set(array2);
+
+// Фильтруем первый массив, оставляя только те элементы, которые есть во втором массиве
+// Мы используем метод filter для первого массива (array1), чтобы оставить только те элементы, которые присутствуют в set2. Для каждого элемента первого массива мы проверяем, есть ли он в set2 с помощью метода has.
+const commonElements = array1.filter(element => set2.has(element));
+
+return commonElements;
+}
+
+// Пример использования
+console.log(findCommonElements([1, 9, 15, 6], [2, 21, 9, 15])); // 
+
+
+
+// findCommonElements([1, 9, 15, 6], [2, 21, 9, 15])
+
