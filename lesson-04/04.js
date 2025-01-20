@@ -12,4 +12,12 @@
 Пример работы функции: `doubleEachCharacter('hello')` вернёт `'hheelllloo'`
 */
 
-function doubleEachCharacter() {}
+function doubleEachCharacter(str) {
+    // Используем метод split для разбивки строки на массив символов
+    // Затем используем метод map для удвоения каждого символа
+    // И, наконец, используем метод join для объединения массива обратно в строку
+    return str.split('').map(char => char.repeat(2)).join('');
+}
+
+// Пример использования
+console.log(doubleEachCharacter('hello')); // Вывод: 'hheelllloo'
