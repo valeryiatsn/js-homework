@@ -23,4 +23,16 @@ const oddNumbers = filter(numbers, (element, index) => {
 console.log(oddNumbers) // Должен вывести: [1, 3, 5]
 */
 
-const filter = () => {}
+
+const animals = [
+  { name: 'dog', age: 2},
+  { name: 'cat', age: 6 },
+  { name: 'parrot', age: 15 },
+  { name: 'bunny', age: 1},
+  { name: 'turtle', age: 8}
+]
+// const filter = () => {}
+
+const newAnimals = animals.filter(animals => animals.age > 5 )
+
+console.log(newAnimals);
