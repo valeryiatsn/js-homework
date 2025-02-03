@@ -24,15 +24,24 @@ console.log(oddNumbers) // Должен вывести: [1, 3, 5]
 */
 
 
-const animals = [
-  { name: 'dog', age: 2},
-  { name: 'cat', age: 6 },
-  { name: 'parrot', age: 15 },
-  { name: 'bunny', age: 1},
-  { name: 'turtle', age: 8}
-]
-// const filter = () => {}
+function filter(array, callback) {
+  const result = []; // Создаем новый массив для хранения отфильтрованных элементов
 
-const newAnimals = animals.filter(animals => animals.age > 5 )
+  for (let i = 0; i < array.length; i++) {
+    const element = array[i]; // Получаем текущий элемент массива
+    if (callback(element, i)) { // Вызываем коллбэк с элементом и его индексом
+      result.push(element); // Если коллбэк вернул true, добавляем элемент в новый массив
+    }
+  }
 
-console.log(newAnimals);
+  return result; // Возвращаем новый массив
+}
+
+// Пример использования:
+const numbers = [1, 2, 3, 4, 5];
+
+const oddNumbers = filter(numbers, (element, i) => {
+  return element % 2 !== 0; // Фильтруем нечетные числа
+});
+
+console.log(oddNumbers); // Должен вывести: [1, 3, 5]
